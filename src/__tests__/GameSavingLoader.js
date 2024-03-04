@@ -13,5 +13,5 @@ const correct = {
 
 test('Checking class GameSavingLoader', async () => {
   const value = await GameSavingLoader.load();
-  return expect(value).toEqual(correct);
+  expect(value).toEqual(correct);
 });

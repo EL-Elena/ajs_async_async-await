@@ -1,5 +1,4 @@
-import GameSavingLoader from '../GameSavingLoader';
-import * as index from '../index';
+import saving from '../index';
 
 const correct = {
   id: 9,
@@ -13,11 +12,13 @@ const correct = {
 };
 
 test('Checking saving', async () => {
-  const value = await GameSavingLoader.load();
-  return expect(value).toEqual(correct);
+  return saving().then((value) => expect(value).toEqual(correct));
 });
 
 test('Checking error', async () => {
-  await GameSavingLoader.load()
-    .catch((error) => expect(error).toEqual('err'));
+  try {
+    await saving();
+  } catch (e) {
+    expect(e).toMatch('err');
+  }
 });
