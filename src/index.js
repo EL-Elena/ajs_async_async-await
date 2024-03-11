@@ -1,10 +1,10 @@
-import GameSavingLoader from './GameSavingLoader';
-
-export default async function saving() {
-  try {
-    const value = await GameSavingLoader.load();
-    return value;
-  } catch (error) {
-    return 'err';
-  }
+export default class GameSaving {
+  id = undefined;
+  created = undefined;
+  userInfo = {
+    id: undefined,
+    name: undefined,
+    level: undefined,
+    points: undefined,
+  } 
 }
